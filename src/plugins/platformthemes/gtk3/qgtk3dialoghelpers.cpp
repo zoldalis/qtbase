@@ -424,7 +424,7 @@ void QGtk3FileDialogHelper::applyOptions()
     const QSharedPointer<QFileDialogOptions> &opts = options();
 
     gtk_window_set_title(GTK_WINDOW(gtkDialog), qUtf8Printable(opts->windowTitle()));
-    gtk_file_chooser_set_local_only(GTK_FILE_CHOOSER(gtkDialog), true);
+    gtk_file_chooser_set_local_only(GTK_FILE_CHOOSER(gtkDialog), false);
 
     setFileChooserAction();
 
