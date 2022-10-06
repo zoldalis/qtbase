@@ -159,8 +159,8 @@ static bool monitorData(HMONITOR hMonitor, QWindowsScreenData *data)
         deviceName.header.size = sizeof(DISPLAYCONFIG_TARGET_DEVICE_NAME);
         deviceName.header.adapterId = pathInfo.targetInfo.adapterId;
         deviceName.header.id = pathInfo.targetInfo.id;
-        if (DisplayConfigGetDeviceInfo(&deviceName.header) == ERROR_SUCCESS)
-            data->name = QString::fromWCharArray(deviceName.monitorFriendlyDeviceName);
+        //if (DisplayConfigGetDeviceInfo(&deviceName.header) == ERROR_SUCCESS)
+        //    data->name = QString::fromWCharArray(deviceName.monitorFriendlyDeviceName);
     }
     if (data->name.isEmpty())
         data->name = QString::fromWCharArray(info.szDevice);
