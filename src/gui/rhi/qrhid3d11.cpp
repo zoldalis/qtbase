@@ -186,7 +186,7 @@ static IDXGIFactory1 *createDXGIFactory2()
 static IDXGIFactory1 *createDXGIFactory1()
 {
     IDXGIFactory1 *result = nullptr;
-    const HRESULT hr = CreateDXGIFactory1(IID_IDXGIFactory1, reinterpret_cast<void **>(&result));
+    const HRESULT hr = E_FAIL;//CreateDXGIFactory1(IID_IDXGIFactory1, reinterpret_cast<void **>(&result));
     if (FAILED(hr)) {
         qWarning("CreateDXGIFactory1() failed to create DXGI factory: %s", qPrintable(comErrorMessage(hr)));
         result = nullptr;
@@ -261,9 +261,9 @@ bool QRhiD3D11::create(QRhi::Flags flags)
         }
 
         ID3D11DeviceContext *ctx = nullptr;
-        HRESULT hr = D3D11CreateDevice(adapterToUse, D3D_DRIVER_TYPE_UNKNOWN, nullptr, devFlags,
+        HRESULT hr = E_FAIL;/* D3D11CreateDevice(adapterToUse, D3D_DRIVER_TYPE_UNKNOWN, nullptr, devFlags,
                                        nullptr, 0, D3D11_SDK_VERSION,
-                                       &dev, &featureLevel, &ctx);
+                                       &dev, &featureLevel, &ctx); */
         adapterToUse->Release();
         if (FAILED(hr)) {
             qWarning("Failed to create D3D11 device and context: %s", qPrintable(comErrorMessage(hr)));
