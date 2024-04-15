@@ -99,7 +99,7 @@ void QOpenGLTextureCacheWrapper::cleanupTexturesForPixmapData(QPlatformPixmap *p
 
 QOpenGLTextureCache::QOpenGLTextureCache(QOpenGLContext *ctx)
     : QOpenGLSharedResource(ctx->shareGroup())
-    , m_cache(256 * 1024) // 256 MB cache
+    , m_cache(QT_OPENGL_TEXTURE_BUFFER_SIZE * 1024) // QT_OPENGL_TEXTURE_BUFFER_SIZE MB cache
 {
 }
 
